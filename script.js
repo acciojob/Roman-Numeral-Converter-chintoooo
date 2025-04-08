@@ -1,7 +1,7 @@
 function convertToRoman(num) {
-  if (num <= 0) return ""; // Romans did not have a numeral for zero
+  if (num <= 0) return "";
 
-  const romanNumerals = [
+  const romanSymbols = [
     ["M", 1000],
     ["CM", 900],
     ["D", 500],
@@ -19,7 +19,7 @@ function convertToRoman(num) {
 
   let result = "";
 
-  for (let [symbol, value] of romanNumerals) {
+  for (let [symbol, value] of romanSymbols) {
     while (num >= value) {
       result += symbol;
       num -= value;
@@ -28,7 +28,3 @@ function convertToRoman(num) {
 
   return result;
 }
-
-// Examples
-console.log(convertToRoman(14));     // Output: XIV
-console.log(convertToRoman(798));    // Output: DCCXCVIII
