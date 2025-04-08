@@ -17,14 +17,14 @@ function convertToRoman(num) {
     ["I", 1]
   ];
 
-  let result = "";
+  let roman = "";
 
-  for (let [symbol, value] of romanSymbols) {
-    while (num >= value) {
-      result += symbol;
-      num -= value;
+  for (let i = 0; i < romanSymbols.length; i++) {
+    while (num >= romanSymbols[i][1]) {
+      roman += romanSymbols[i][0];
+      num -= romanSymbols[i][1];
     }
   }
 
-  return result;
+  return roman;
 }
