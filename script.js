@@ -1,5 +1,5 @@
 function convertToRoman(num) {
-  if (num <= 0) return "";
+  if (num <= 0 || num > 100000) return '';
 
   const romanSymbols = [
     ["M", 1000],
@@ -17,14 +17,18 @@ function convertToRoman(num) {
     ["I", 1]
   ];
 
-  let roman = "";
+  let result = "";
 
-  for (let i = 0; i < romanSymbols.length; i++) {
-    while (num >= romanSymbols[i][1]) {
-      roman += romanSymbols[i][0];
-      num -= romanSymbols[i][1];
+  for (let [symbol, value] of romanSymbols) {
+    while (num >= value) {
+      result += symbol;
+      num -= value;
     }
   }
 
-  return roman;
+  return result;
 }
+
+// Example usage:
+console.log(convertToRoman(14));   // XIV
+console.log(convertToRoman(798));  // DCCXCVIII
