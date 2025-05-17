@@ -1,9 +1,12 @@
 function convertToRoman(num) {
-  if (num <= 0) return "N"; // Romans didn't have a numeral for zero, sometimes "N" is used.
-  if (num > 3999) return "Number too large for standard Roman numerals";
+  if (num <= 0) return "N"; // Romans didn't have zero
 
   const romanNumerals = [
-    ["M", 1000],
+    ["_C", 100000],
+    ["_L", 50000],
+    ["_X", 10000],
+    ["_V", 5000],
+    ["_I", 1000],
     ["CM", 900],
     ["D", 500],
     ["CD", 400],
@@ -30,6 +33,7 @@ function convertToRoman(num) {
   return result;
 }
 
-// Example usage:
-console.log(convertToRoman(14));   // XIV
-console.log(convertToRoman(798));  // DCCXCVIII
+// Sample test cases
+console.log(convertToRoman(14));    // Output: XIV
+console.log(convertToRoman(798));   // Output: DCCXCVIII
+console.log(convertToRoman(100000)); // Output: _C
